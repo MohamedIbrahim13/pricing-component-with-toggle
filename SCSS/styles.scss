@@ -1,0 +1,239 @@
+@import "variables";
+@import "mixins";
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: $fontSize;
+    font-family: $bodyFont;
+    background-color: $veryLightGrayishBlue;
+    background-image: url('../images/bg-top.svg');
+    background-repeat: no-repeat;
+    background-size: 65vw 80vh;
+    background-position-x: 250px;
+    text-align: center;
+    color: $grayishBlue;
+
+    @include mQ(576px) {
+
+        background: url('../images/bg-top.svg') no-repeat top right, url('../images/bg-bottom.svg') no-repeat bottom -70px left, $veryLightGrayishBlue;
+
+    }
+
+}
+
+//reset
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    padding-top: 35px;
+
+    @include mQ(576px) {
+        width: 75%;
+        margin: 0 auto;
+
+
+    }
+}
+
+.title {
+    font-size: 1.75em;
+
+}
+
+.switch {
+    padding: 35px 45px;
+    display: flex;
+    justify-content: space-between;
+    color: $lightGrayishBlue;
+    margin-bottom: 20px;
+
+    @include mQ(576px) {
+        width: 25%;
+        margin: 0 auto;
+        margin-bottom: 0;
+
+
+    }
+}
+
+input[type='checkbox'] {
+    margin: 0;
+    width: 50px;
+    height: 25px;
+    position: relative;
+    -webkit-appearance: none;
+    background: $linearGradient;
+    outline: none;
+    border-radius: 20px;
+    transition: all 0.5s;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+input:checked[type='checkbox'] {
+    background: $lightGrayishBlue;
+    transition: all 0.5s;
+}
+
+input[type='checkbox']:before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: white;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    transform: scale(0.75);
+    transition: all 0.5s;
+}
+
+input:checked[type='checkbox']:before {
+    left: 25px;
+
+}
+
+button {
+    border: none;
+    outline: none;
+    font-weight: 700;
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.85em;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+}
+
+.basic,
+.professional,
+.master {
+    border-radius: 8px;
+    padding: 20px;
+    background: $veryLightGrayishBlue;
+
+    p {
+        border-bottom: 0.5px solid $lightGrayishBlue;
+        padding-bottom: 12px;
+        padding-top: 12px;
+
+    }
+
+
+    .monthly,
+    .annually {
+        font-size: 5em;
+
+
+        span {
+            font-size: 40px !important;
+            vertical-align: middle;
+        }
+
+
+
+    }
+
+    p:nth-child(1) {
+        border: none;
+    }
+
+    p:last-of-type {
+        margin-bottom: 30px;
+    }
+
+
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.pricing-plan {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 0;
+
+    @include mQ(576px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-row-gap: 0;
+        grid-column-gap: 0;
+        margin-top: 45px;
+        margin-bottom: 70px;
+
+    }
+
+    .basic,
+    .master {
+        background: white;
+
+        p {
+
+            color: $lightGrayishBlue;
+        }
+
+        .monthly,
+        .annually {
+
+            color: $darkGrayishBlue;
+        }
+
+        button {
+
+            background: $linearGradient;
+
+            color: white;
+        }
+
+    }
+
+    .professional {
+
+        background: $linearGradient;
+        color: white;
+
+        @include mQ(576px) {
+            transform: scaleY(1.1) scaleX(1.03);
+
+        }
+
+        button {
+            background: white;
+            color: hsl(237, 63%, 64%);
+
+        }
+    }
+
+
+}
